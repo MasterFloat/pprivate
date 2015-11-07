@@ -24,7 +24,8 @@ exports.commands = {
 			"/deleteleague [id] - Comando para eliminar una liga.<br />"  +
 			"/editleague [id], [name/room], [data] - Edita la informacion de la liga.<br />"  +
 			"/setgymleader [id-league], [user], [id-medal] - Establece un usuario como miembro de la liga.<br />"  +
-			"/setgymleader [id-league], [user], [id-medal] - Establece un usuario como elite de la liga.<br />"  +
+			"/setelite [id-league], [user], [id-medal] - Establece un usuario como elite de la liga.<br />"  +
+			"/setcampeon [id-league], [user], [id-medal] - Establece un usuario como campeon de la liga.<br />"  +
 			"/removegymleader [id-league], [id-medal] - Elimina un puesto de una liga.<br />"  +
 			"/darmedalla [user], (id) - Entrega una medalla.<br />"  +
 			"/quitarmedalla [user], (id) - Retira una medalla.<br />"
@@ -175,6 +176,16 @@ exports.commands = {
 		if (!target) return this.sendReply('Usage: /setelite [id-league], [user], [id-medal]');
 		var params = target.split(',');
 		if (!params || params.length < 3) return this.sendReply("Usage: /setelite [id-league], [user], [id-medal]");
+		if (!Users.get(params[1])) this.sendReply('Warning: ' + toId(params[1]) + ' is offline.');
+		if (League.addLeader(params[0], params[1], 'e', params[2])) return this.sendReply('Usuario ' + toId(params[1]) + ' asignado en el puesto correspondiente.');
+		this.sendReply("Alguno de los datos no es correcto.");
+	},
+	
+	setcampeon: function (target, room, user) {
+		if (!this.can('league')) return false;
+		if (!target) return this.sendReply('Usage: /setcampeon [id-league], [user], [id-medal]');
+		var params = target.split(',');
+		if (!params || params.length < 3) return this.sendReply("Usage: /setcampeon [id-league], [user], [id-medal]");
 		if (!Users.get(params[1])) this.sendReply('Warning: ' + toId(params[1]) + ' is offline.');
 		if (League.addLeader(params[0], params[1], 'e', params[2])) return this.sendReply('Usuario ' + toId(params[1]) + ' asignado en el puesto correspondiente.');
 		this.sendReply("Alguno de los datos no es correcto.");
