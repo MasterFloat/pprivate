@@ -9,13 +9,15 @@ exports.commands = {
 	shop: function (target, room, user) {
 		if (!this.canBroadcast()) return false;
 		this.sendReplyBox(
-			'<center><h3><b><u>Tienda del servidor</u></b></h3><table border="1" cellspacing="0" cellpadding="3" target="_blank"><tbody>' +
+			'<center><h3><b><u>Tienda de Big Bang</u></b></h3><table border="1" cellspacing="0" cellpadding="3" target="_blank"><tbody>' +
 			'<tr><th>Art&iacute;culo</th><th>Descripci&oacute;n</th><th>Coste</th></tr>' +
 			'<tr><td>Chatroom</td><td>Compra una Sala de chat. Será pública o privada en función del motivo de su compra. Si se detecta spam de comandos / saturación del modlog será borrada.</td><td>10000</td></tr>' +
 			'<tr><td>CustomTC</td><td>Compra una Tarjeta de Entrenador personalizada (a partir de código html). Contactar con un administrador si el código es muy largo para un solo mensaje.</td><td>8000</td></tr>' +
 			'<tr><td>CustomAvatar</td><td>Compra un avatar personalizado. Preferiblemente debe ser una imagen de pequeñas dimensiones y acorde a las reglas del servidor. Contactar con un Admin para obtener este art&iacute;culo.</td><td>6000</td></tr>' +
+			'<tr><td>Icon</td><td>Compra un icono de un pokemon al lado de tu nick para 3 salas. Debe ser una imagen 32x32. Contactar con un Admin para obtener este art&iacute;culo.</td><td>4000</td></tr>' +
 			'<tr><td>Symbol</td><td>Compra el acceso al comado /customsymbol que permite elegir un símbolo (excepto staff) para aparecer en lo alto de la lista de usuarios.</td><td>4000</td></tr>' +
 			'<tr><td>TC</td><td>Compra una Tarjeta de entrenador básica. Con una Imagen modificable con /tcimage y una frase de entrenador modificable con /tcphrase</td><td>3000</td></tr>' +
+			'<tr><td>IconSupport</td><td>Si ya tienes un icono. Puedes cambiarlo por otro diferente.</td><td>1000</td></tr>' +
 			'<tr><td>Avatar</td><td>Si ya tienes un avatar personalizado. Puedes cambiarlo por otro diferente.</td><td>1000</td></tr>' +
 			'<tr><td>Sprite</td><td>Añade la imagen de un Pokemon a tu TC Básica. Máximo 6. Se pueden cambiar los pokemon con el comando /tcpokemon</td><td>100</td></tr>' +
 			'</tbody></table><br /> Para comprar un artículo usa el comando /buy (artículo)' +
@@ -54,6 +56,7 @@ exports.commands = {
 			"/removetc (user) - Elimina una tarjeta de entrenador.<br />" +
 			"/setcustomtc (user), (on/off) - Establece el permiso para usar una Tc personalizada.<br />" +
 			"/sethtmltc (user), (html) - Modifica la Tc personalizada de un usuario.<br />"
+			"/seticon (user), (imagen), (room1), (room2)... - Establece un icono para un usuario y sus respectivas salas.>br />" +
 		);
 	},
 
