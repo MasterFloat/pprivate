@@ -106,4 +106,49 @@ exports.commands = {
 		}
 		this.sendReplyBox(official.join(' ') + nonOfficial.join(' ') + privateRoom.join(' '));
 	}
+	
+	pmall: 'serverannounce',
+	serverannounce: function (target, room, user) {
+		if (!this.can('pmall')) return false;
+		if (!target) return this.parse('/help pmall');
+
+		var pmName = ' Server Announcement';
+
+		for (var i in Users.users) {
+			var message = '|pm|' + pmName + '|' + Users.users[i].getIdentity() + '|' + target;
+			Users.users[i].send(message);
+		}
+	},
+	pmallhelp: ["/pmall [message] - PM all users in the server."],
+
+	pmallstaff: 'staffannounce',
+	staffannounce: function (target, room, user) {
+		if (!this.can('hotpatch')) return false;
+		if (!target) return this.parse('/help pmallstaff');
+
+		var pmName = ' Staff Announcement';
+
+		for (var i in Users.users) {
+			if (Users.users[i].isStaff) {
+				Users.users[i].send('|pm|' + pmName + '|' + Users.users[i].group + Users.users[i].name + '|' + target);
+			}
+		}
+	},
+	pmallstaffhelp: ["/pmallstaff [message] - Sends a PM to every staff member online."],
+
+    rmall: 'roomannounce',
+    roompm: 'roomannounce',
+    roomannounce: function (target, room, user) {
+        if(!this.can('declare', null, room)) return this.sendReply('/rmall - Access denied.');
+        if (room.id === 'lobby') return this.sendReply('This command can not be used in Lobby.');
+        if (!target) return this.sendReply('/rmall [message] - Sends a pm to all users in the room.');
+
+        var pmName = ' ' + Tools.escapeHTML(room.title) + ' Announcement';
+
+        for (var i in room.users) {
+            var message = '|pm|' + pmName + '|' + room.users[i].getIdentity() + '| ' + Tools.escapeHTML(target);
+            room.users[i].send(message);
+        }
+        this.privateModCommand('(' + Tools.escapeHTML(user.name) + ' mass PMd: ' + Tools.escapeHTML(target) + ')');
+    },
 };
