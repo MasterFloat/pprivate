@@ -55,8 +55,8 @@ exports.commands = {
 			"/deavatarreq (user) - Eimina una solicitud de avatar de la lista.<br />" +
 			"/removetc (user) - Elimina una tarjeta de entrenador.<br />" +
 			"/setcustomtc (user), (on/off) - Establece el permiso para usar una Tc personalizada.<br />" +
-			"/sethtmltc (user), (html) - Modifica la Tc personalizada de un usuario.<br />"
-			"/seticon (user), (imagen), (room1), (room2)... - Establece un icono para un usuario y sus respectivas salas.>br />" +
+			"/sethtmltc (user), (html) - Modifica la Tc personalizada de un usuario.<br />" +
+			"/seticon (user), (imagen), (room1), (room2)... - Establece un icono para un usuario y sus respectivas salas.>br />"
 		);
 	},
 
