@@ -105,7 +105,7 @@ exports.commands = {
 			}
 		}
 		this.sendReplyBox(official.join(' ') + nonOfficial.join(' ') + privateRoom.join(' '));
-	}
+	},
 	
 	pmall: 'serverannounce',
 	serverannounce: function (target, room, user) {
