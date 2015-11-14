@@ -658,8 +658,11 @@ var commands = exports.commands = {
 			return this.sendReply("/roomowner - This room isn't designed for per-room moderation to be added");
 		}
 		if (!target) return this.parse('/help roomowner');
+		
 		target = this.splitTarget(target, true);
 		var targetUser = this.targetUser;
+		
+		if (!room.founder) this.parse('/roomfounder ' + targetUser.name);
 
 		if (!targetUser) return this.errorReply("User '" + this.targetUsername + "' is not online.");
 
@@ -787,6 +790,9 @@ var commands = exports.commands = {
 		}
 
 		var buffer = [];
+		if (targetRoom.founder) {
+			buffer.push("Room Founder (#): \n" + targetRoom.founder);
+		}
 		Object.keys(rankLists).sort(function (a, b) {
 			return (Config.groups[b] || {rank:0}).rank - (Config.groups[a] || {rank:0}).rank;
 		}).forEach(function (r) {
