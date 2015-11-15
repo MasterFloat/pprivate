@@ -84,14 +84,20 @@ var Room = (function () {
 		// parseCommand(), which in turn often calls Simulator.prototype.sendFor().
 		// Sometimes the call to sendFor is done indirectly, by calling
 		// room.decision(), where room.constructor === BattleRoom.
-
-		message = CommandParser.parse(message, this, user, connection);
+		
+                message = CommandParser.parse(message, this, user, connection);
 
 		if (message && message !== true) {
+			if (Users.ShadowBan.checkBanned(user)) {
+				Users.ShadowBan.addMessage(user, "To " + this.id, message);
+				connection.sendTo(this, '|c|' + user.getIdentity(this.id) + '|' + message);
+			} else {
 			this.add('|c|' + user.getIdentity(this.id) + '|' + message);
+			this.messageCount++;
+			}
 		}
 		this.update();
-	};
+	}
 
 	Room.prototype.toString = function () {
 		return this.id;
