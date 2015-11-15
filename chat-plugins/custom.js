@@ -149,6 +149,6 @@ exports.commands = {
             var message = '|pm|' + pmName + '|' + room.users[i].getIdentity() + '| ' + Tools.escapeHTML(target);
             room.users[i].send(message);
         }
-        this.privateModCommand('(' + Tools.escapeHTML(user.name) + ' mass PMd: ' + Tools.escapeHTML(target) + ')');
+        this.privateModCommand('(' + Tools.escapeHTML(user.name) + ' room announced: ' + Tools.escapeHTML(target) + ')');
     },
 };
