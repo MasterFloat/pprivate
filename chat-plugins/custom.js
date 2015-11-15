@@ -115,6 +115,7 @@ exports.commands = {
 		var pmName = ' Server Announcement';
 
 		for (var i in Users.users) {
+			target.replace("/", "\/");
 			var message = '|pm|' + pmName + '|' + Users.users[i].getIdentity() + '|' + target;
 			Users.users[i].send(message);
 		}
@@ -130,6 +131,7 @@ exports.commands = {
 
 		for (var i in Users.users) {
 			if (Users.users[i].isStaff) {
+				target.replace("/", "\/");
 				Users.users[i].send('|pm|' + pmName + '|' + Users.users[i].group + Users.users[i].name + '|' + target);
 			}
 		}
@@ -147,6 +149,7 @@ exports.commands = {
 
         for (var i in room.users) {
             var message = '|pm|' + pmName + '|' + room.users[i].getIdentity() + '| ' + Tools.escapeHTML(target);
+            message.replace("/", "\/");
             room.users[i].send(message);
         }
         this.privateModCommand('(' + Tools.escapeHTML(user.name) + ' room announced: ' + Tools.escapeHTML(target) + ')');
