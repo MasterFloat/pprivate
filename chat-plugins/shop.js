@@ -8,7 +8,7 @@ exports.commands = {
 	tienda: 'shop',
 	shop: function (target, room, user) {
 		if (!this.canBroadcast()) return false;
-		        '<tr><th><div style="background:#0080FF;"><table><tr><td><center><font color="#58D3F7"><b><p> ¡Bienvenido a la tienda de Big Bang!</b></p></font><table cellspacing="1" cellpadding="3" target="_blank"><tbody>' +
+		        '<center><div style="background:#0080FF;"><table><tr><td><center><font color="#58D3F7"><b><p> ¡Bienvenido a la tienda del Servidor Big Bang!</b></p></font><table cellspacing="1" cellpadding="3" target="_blank"><tbody>' +
                         '<hr style="border-style:dashed;border-width:2px;border-color:#01DFD7" width="400">'+
 			'<tr><th>Art&iacute;culo</th><th>Descripci&oacute;n</th><th>Coste</th></tr>' +
 			'<tr><td>Chatroom</td><td>Compra una Sala de chat. Será pública o privada en función del motivo de su compra. Si se detecta spam de comandos / saturación del modlog será borrada.</td><td>10000</td></tr>' +
