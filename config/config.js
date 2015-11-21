@@ -297,7 +297,7 @@ exports.grouplist = [
 		symbol: '%',
 		id: "driver",
 		name: "Driver",
-		inherit: '\u2295',
+		inherit: '$',
 		jurisdiction: 'u',
 		announce: true,
 		warn: true,
@@ -314,11 +314,22 @@ exports.grouplist = [
 		jeopardy: true,
 		joinbattle: true
 	},
+	{       symbol: '$',
+	        id: "operator",
+	        name: "Operator",
+	        inherit: '+',
+	        jurisdiction: 'u',
+	        warn: true,
+	        mute: true,
+	        timer: true,
+	        tournamentsmoderation: true,
+	        joinbattle: true
+	},
 	{
 		symbol: '+',
 		id: "voice",
 		name: "Voice",
-		inherit: '$',
+		inherit: '.',
 		joinbattle: true,
 		broadcast: true
 	},
