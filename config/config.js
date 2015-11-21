@@ -315,13 +315,15 @@ exports.grouplist = [
 		joinbattle: true
 	},
 	{       symbol: '$',
-	        id: "operator",
+	        id: "op",
 	        name: "Operator",
 	        inherit: '+',
 	        jurisdiction: 'u',
 	        warn: true,
 	        mute: true,
+	        kick: true,
 	        timer: true,
+	        receiveauthmessages: true,
 	        tournamentsmoderation: true,
 	        joinbattle: true
 	},
@@ -329,7 +331,7 @@ exports.grouplist = [
 		symbol: '+',
 		id: "voice",
 		name: "Voice",
-		inherit: '.',
+		inherit: ' ',
 		joinbattle: true,
 		broadcast: true
 	},
