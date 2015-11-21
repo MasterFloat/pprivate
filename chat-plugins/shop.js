@@ -8,8 +8,8 @@ exports.commands = {
 	tienda: 'shop',
 	shop: function (target, room, user) {
 		if (!this.canBroadcast()) return false;
-		this.sendReplyBox(
-			'<center><h3><b><u>Tienda de Big Bang</u></b></h3><table border="1" cellspacing="0" cellpadding="3" target="_blank"><tbody>' +
+		        '<tr><th><div style="background:#0080FF;"><table><tr><td><center><font color="#58D3F7"><b><p> ¡Bienvenido a la tienda de Big Bang!</b></p></font><table cellspacing="1" cellpadding="3" target="_blank"><tbody>' +
+                        '<hr style="border-style:dashed;border-width:2px;border-color:#01DFD7" width="400">'+
 			'<tr><th>Art&iacute;culo</th><th>Descripci&oacute;n</th><th>Coste</th></tr>' +
 			'<tr><td>Chatroom</td><td>Compra una Sala de chat. Será pública o privada en función del motivo de su compra. Si se detecta spam de comandos / saturación del modlog será borrada.</td><td>10000</td></tr>' +
 			'<tr><td>CustomTC</td><td>Compra una Tarjeta de Entrenador personalizada (a partir de código html). Contactar con un administrador si el código es muy largo para un solo mensaje.</td><td>8000</td></tr>' +
