@@ -12,7 +12,7 @@ if (!room) {
 	if (room.chatRoomData) {
 		room.chatRoomData.isPrivate = true;
 		room.chatRoomData.staffRoom = true;
-		room.chatRoomData.staffAutojoin = false;
+		room.chatRoomData.staffAutojoin = true;
 		room.chatRoomData.addedUsers = room.addedUsers;
 
 		Rooms.global.writeChatRoomData();
@@ -20,7 +20,7 @@ if (!room) {
 }
 if (Object.size(room.addedUsers) > 0) {
 	setImmediate(function () {
-		room.add("||Añadiendo usuarios al S-B: " + Object.keys(room.addedUsers).sort().join(", "));
+		room.add("||Added Users: " + Object.keys(room.addedUsers).sort().join(", "));
 		room.update();
 	});
 }
@@ -110,7 +110,7 @@ var addUser = exports.addUser = function (user) {
 
 	if (targets.length > 0) {
 		Rooms.global.writeChatRoomData();
-		room.add("||Añadiendo usuario: " + targets.join(", "));
+		room.add("||Added User: " + targets.join(", "));
 		room.update();
 	}
 
@@ -130,7 +130,7 @@ var removeUser = exports.removeUser = function (user) {
 
 	if (targets.length > 0) {
 		Rooms.global.writeChatRoomData();
-		room.add("||Eliminando usuario: " + targets.join(", "));
+		room.add("||Removed User: " + targets.join(", "));
 		room.update();
 	}
 
