@@ -985,7 +985,7 @@ var commands = exports.commands = {
 		targetUser.send('|c|~|/warn ' + target);
 		this.add('|unlink|' + this.getLastIdOf(targetUser));
 	},
-	warnhelp: ["/warn OR /k [username], [reason] - Warns a user showing them the Pok\u00e9mon Showdown Rules and [reason] in an overlay. Requires: % @ # & ~"],
+	warnhelp: ["/warn OR /w [username], [reason] - Warns a user showing them the Pok\u00e9mon Showdown Rules and [reason] in an overlay. Requires: $ % @ # & ~"],
 
 	redirect: 'redir',
 	redir: function (target, room, user, connection) {
@@ -1048,14 +1048,14 @@ var commands = exports.commands = {
 
 		room.mute(targetUser, muteDuration, false);
 	},
-	mutehelp: ["/mute OR /m [username], [reason] - Mutes a user with reason for 7 minutes. Requires: % @ # & ~"],
+	mutehelp: ["/mute OR /m [username], [reason] - Mutes a user with reason for 7 minutes. Requires: $ % @ # & ~"],
 
 	hm: 'hourmute',
 	hourmute: function (target) {
 		if (!target) return this.parse('/help hourmute');
 		this.run('mute');
 	},
-	hourmutehelp: ["/hourmute OR /hm [username], [reason] - Mutes a user with reason for an hour. Requires: % @ # & ~"],
+	hourmutehelp: ["/hourmute OR /hm [username], [reason] - Mutes a user with reason for an hour. Requires: $ % @ # & ~"],
 
 	um: 'unmute',
 	unmute: function (target, room, user) {
@@ -1073,7 +1073,7 @@ var commands = exports.commands = {
 			this.errorReply("" + (targetUser ? targetUser.name : this.targetUsername) + " is not muted.");
 		}
 	},
-	unmutehelp: ["/unmute [username] - Removes mute from user. Requires: % @ # & ~"],
+	unmutehelp: ["/unmute [username] - Removes mute from user. Requires: $ % @ # & ~"],
 
 	forcelock: 'lock',
 	l: 'lock',
@@ -2292,7 +2292,7 @@ var commands = exports.commands = {
 			this.sendReply("/kickbattle - User isn't in battle.");
 		}
 	},
-	kickbattlehelp: ["/kickbattle [username], [reason] - Kicks a user from a battle with reason. Requires: % @ & ~"],
+	kickbattlehelp: ["/kickbattle [username], [reason] - Kicks a user from a battle with reason. Requires: $ % @ & ~"],
 
 	kickinactive: function (target, room, user) {
 		if (room.requestKickInactive) {
@@ -2584,9 +2584,10 @@ var commands = exports.commands = {
 			this.sendReply("/help OR /h OR /? - Gives you help.");
 		} else if (!target) {
 			this.sendReply("COMMANDS: /nick, /avatar, /rating, /whois, /msg, /reply, /ignore, /away, /back, /timestamps, /highlight");
-			this.sendReply("INFORMATIONAL COMMANDS: /data, /dexsearch, /movesearch, /groups, /faq, /rules, /intro, /formatshelp, /othermetas, /learn, /analysis, /calc (replace / with ! to broadcast. Broadcasting requires: + % @ # & ~)");
+			this.sendReply("INFORMATIONAL COMMANDS: /data, /dexsearch, /movesearch, /groups, /faq, /rules, /intro, /formatshelp, /othermetas, /learn, /analysis, /calc (replace / with ! to broadcast. Broadcasting requires: + $ % @ # & ~)");
 			if (user.group !== Config.groupsranking[0]) {
-				this.sendReply("DRIVER COMMANDS: /warn, /mute, /hourmute, /unmute, /alts, /forcerename, /modlog, /modnote, /lock, /unlock, /announce, /redirect");
+				this.sendReply("OPERATOR COMMANDS: /warn, /mute, /hourmute, /unmute, /tour")
+				this.sendReply("DRIVER COMMANDS: /alts, /forcerename, /modlog, /modnote, /lock, /unlock, /announce, /redirect");
 				this.sendReply("MODERATOR COMMANDS: /ban, /unban, /ip, /modchat");
 				this.sendReply("LEADER COMMANDS: /declare, /forcetie, /forcewin, /promote, /demote, /banip, /host, /unbanall");
 			}
